@@ -1,3 +1,5 @@
+clear;
+close all;
 % example_KMPC.m
 %   This script identifies a linear Koopman model from data, constructs an
 %   MPC controller, and simulates the performance of the controller on a
@@ -28,7 +30,7 @@ data4sysid = load( [datafile_path , datafile_name] );
 ksysid = ksysid( data4sysid, ...
         'model_type' , 'linear' ,...    % model type (linear or nonlinear)
         'obs_type' , { 'poly' } ,...    % type of basis functions
-        'obs_degree' , [ 2 ] ,...       % "degree" of basis functions
+        'obs_degree' , [ 3 ] ,...       % "degree" of basis functions
         'snapshots' , Inf ,...          % Number of snapshot pairs
         'lasso' , [ Inf ] ,...           % L1 regularization term
         'delays' , 1 );                 % Numer of state/input delays

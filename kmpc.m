@@ -318,7 +318,11 @@ classdef kmpc
             
             % solve the MPC problem
 %             Uvec = quadprog_gurobi( H , f , A , b );   % solve using gurobi (returns NaNs of cannot be solved)
-            Uvec = quadprog( 2*H , f , A , b );     % solve using matlab
+            try
+                Uvec = quadprog( 2*H , f , A , b );     % solve using matlab
+            catch
+                nop;
+            end
             
             % reshape the output so each input will have one row (first row equals current input)
             U = reshape( Uvec , [ obj.params.m , Np ] )';
