@@ -1,3 +1,4 @@
+clear all;
 % example_KNMPC.m
 %   This script identifies a nonlinear Koopman model from data, constructs
 %   an open-loop NMPC controller, and simulates the performance of the 
@@ -34,7 +35,7 @@ ksysid = ksysid( data4sysid, ...
         'obs_degree' , [ 3 ] ,...       % "degree" of basis functions
         'snapshots' , Inf ,...          % Number of snapshot pairs
         'lasso' , [ 10 ] ,...           % L1 regularization term
-        'delays' , 0 );                 % Numer of state/input delays
+        'delays' , 1);                 % Numer of state/input delays
 
     
 % train linear Koopman model(s)
